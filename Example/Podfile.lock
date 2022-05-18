@@ -1,0 +1,40 @@
+PODS:
+  - AppAuth (1.5.0):
+    - AppAuth/Core (= 1.5.0)
+    - AppAuth/ExternalUserAgent (= 1.5.0)
+  - AppAuth/Core (1.5.0)
+  - AppAuth/ExternalUserAgent (1.5.0):
+    - AppAuth/Core
+  - GoogleSignIn (5.0.1):
+    - AppAuth (~> 1.2)
+    - GTMAppAuth (~> 1.0)
+    - GTMSessionFetcher/Core (~> 1.1)
+  - GTMAppAuth (1.2.3):
+    - AppAuth/Core (~> 1.4)
+    - GTMSessionFetcher/Core (~> 1.5)
+  - GTMSessionFetcher/Core (1.7.2)
+  - Rigi (1.5.0)
+
+DEPENDENCIES:
+  - GoogleSignIn (= 5.0.1)
+  - Rigi
+
+SPEC REPOS:
+  https://github.com/Dimi70/rigi-ios-sdk-Specs:
+    - Rigi
+  trunk:
+    - AppAuth
+    - GoogleSignIn
+    - GTMAppAuth
+    - GTMSessionFetcher
+
+SPEC CHECKSUMS:
+  AppAuth: 80317d99ac7ff2801a2f18ff86b48cd315ed465d
+  GoogleSignIn: 3a51b9bb8e48b635fd7f4272cee06ca260345b86
+  GTMAppAuth: 987526d41b07efb1bedda5e936fe0cb718a03113
+  GTMSessionFetcher: 5595ec75acf5be50814f81e9189490412bad82ba
+  Rigi: b88489f6854e61486dc1742b924057213e5d9e06
+
+PODFILE CHECKSUM: fe0bea91936855c626184574ae4b2c6fe85333d3
+
+COCOAPODS: 1.11.3

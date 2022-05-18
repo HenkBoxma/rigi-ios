@@ -1,0 +1,13 @@
+source 'https://github.com/Dimi70/rigi-ios-sdk-Specs.git'
+
+platform :ios, '10.0'
+use_frameworks!
+
+def install_pods
+ pod 'Rigi'#, '= 1.4'
+ pod 'GoogleSignIn', '5.0.1'
+end
+
+target 'Example' do
+  install_pods
+end
