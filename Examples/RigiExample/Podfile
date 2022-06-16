@@ -1,0 +1,11 @@
+platform :ios, '11.0'
+
+source 'https://cdn.cocoapods.org/'
+source 'https://github.com/HenkBoxma/rigi-ios'
+
+target 'RigiExample' do
+  use_frameworks!
+
+  pod 'Rigi'
+
+end
