@@ -12,6 +12,7 @@ Create Rigi previews for your iOS project.
   1. [Introduction](#introduction)
   1. [Requirements](#requirements)
   1. [Install the Rigi SDK](#install-the-rigi-sdk)
+  1. [Configure Xcode project](#configure-xcode)
   1. [License](#SDK-at-a-glance)  
   
 <br />
@@ -97,51 +98,55 @@ Once you update your Podfile you will need to run either `pod update` or `pod in
 Open the project_name.xcworkspace with Xcode.
 
 
-## Add localisations to Xcode project
+## Configure Xcode project
 
 
-#### Enable base localization
+#### Enable localization
 
 Enable base localization in the Xcode project. 
 This will set Storyboards and Xibs as the base and will add additional string files for each extra language. 
 
-![](https://raw.githubusercontent.com/HenkBoxma/rigi-ios/main/Docs/Assets/app-del.png)
 
-
-#### Add Pseudo language
-
+#### Add languages
 
 Add your required languages to the Xcode project.
 
-You should also add a pseudo language that will only be used to load marked texts into your project and enables Rigi to capture screenshots and recognise and extract the marked texts. 
+You should also add a ***pseudo language*** that will only be used to load marked texts into your project and enables Rigi to capture screenshots and recognise and extract the marked texts. 
 
 Here we chose Zulu as a pseudo language. 
 
 ![](https://raw.githubusercontent.com/HenkBoxma/rigi-ios/main/Docs/Assets/localization.png)
 
 
-<img src="https://raw.githubusercontent.com/HenkBoxma/rigi-ios/main/Docs/Assets/target-dupl.png" width="200" align="right">
-
-
 #### Add Rigi Target and Scheme
 
-You can create a specific target and scheme for the Rigi builds. This keeps your production builds nicely separated from the Rigi builds.
+<!--<img src="https://raw.githubusercontent.com/HenkBoxma/rigi-ios/main/Docs/Assets/target-dupl.png" width="200" align="right">-->
 
+You can create a specific target and scheme for the Rigi builds. This keeps your production builds separated from the Rigi builds.
 
-In Xcode create (or copy) a new scheme and set App language to the new pseudo locale. When the locale can not be selected from the dropdown add a new launch argument -AppleLanguages "(ZU)" in the scheme.
+In Xcode create (or copy) a new scheme and set App language to the new pseudo locale. 
+
+<img src="https://raw.githubusercontent.com/HenkBoxma/rigi-ios/main/Docs/Assets/target-dupl.png" width="200">
+
+When the locale can not be selected from the dropdown add a new launch argument  in the scheme
+
+```code
+-AppleLanguages "(ZU)"
+```
 
 
 ![](https://raw.githubusercontent.com/HenkBoxma/rigi-ios/main/Docs/Assets/scheme-edit4.png)
 
 
 
-#### Enable Rigi in our project
-
-Activate the Rigi SDK in the appDelegate. 
+#### Enable Rigi
 
 Optionally you can add a custom preprocessor flag to enable Rigi only for the Rigi build Target.
 
 ![Add Rigi preprocessor flag](https://raw.githubusercontent.com/HenkBoxma/rigi-ios/main/Docs/Assets/build1.png)
+
+Activate the Rigi SDK in the appDelegate. 
+
 ![](https://raw.githubusercontent.com/HenkBoxma/rigi-ios/main/Docs/Assets/app-del.png)
 
 
@@ -156,8 +161,6 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions
     return true
 }
 ```
-
-
 
 
 ## License
