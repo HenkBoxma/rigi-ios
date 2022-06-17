@@ -100,6 +100,47 @@ Open the project_name.xcworkspace with Xcode.
 ## Add localisations to Xcode project
 
 
+Enable base localization in the Xcode project. 
+This will set Storyboards and Xibs as the base and will add additional string files for each extra language. 
+
+Add the required extra languages in the Xcode project.
+
+You should also add a pseudo language that will only be used to load marked texts into your project and enables Rigi to capture screenshots and recognise and extract the marked texts. 
+
+Here we chose Zulu (South Africa) as a pseudo language. 
+
+Add a new scheme to run pseudo language in simulator
+
+In Xcode create (or copy) a new scheme and set App language to the new pseudo locale. When the locale can not be selected from the dropdown add a new launch argument -AppleLanguages "(ZU)"
+
+
+Then remove the pseudo locale from all distribution targets.
+Alternatively we could create a specific target that will only be used for Rigi previewting and string extraction. Then we can add the pseudo language files as the only locale for this target. 
+
+TODO - Test the proposed solution above
+
+
+Add the Rigi SDK to the project
+
+For now just copy the RigiSdk folder to the project and add the folder in Xcode.
+
+
+Then activate the Rigi SDK in the appDelegate. You can also add a custom pre processor flag to enable Rigi Capture only for a specific build Target.
+
+```swift
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions 
+    	launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+
+        #if RIGI_ENABLED
+        RigiSdk.shared.start()
+        #endif
+
+        return true
+    }
+```
+
+
+
 
 ## License
 
