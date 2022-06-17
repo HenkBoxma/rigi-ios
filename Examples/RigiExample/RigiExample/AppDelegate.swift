@@ -1,19 +1,15 @@
-//
-//  AppDelegate.swift
-//  RigiExample
-//
-//  Created by Dimitri van Oijen on 16/06/2022.
-//
-
 import UIKit
+import Rigi
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+
+        #if RIGI_ENABLED
+        RigiSdk.shared.start()
+        #endif
+
         return true
     }
 

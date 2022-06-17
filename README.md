@@ -66,11 +66,31 @@ source 'https://github.com/HenkBoxma/rigi-ios'
 source 'https://cdn.cocoapods.org/'
 ```
 
-Specify the version you want to use, like so:
+Add the Rigi pod. Optionally specify the version you want to use, like so:
 
 ```bash
 pod 'Rigi', '~> 1.0'
 ```
+
+Your Podfile now will look something like this:
+
+```bash
+platform :ios, '11.0'
+
+source 'https://cdn.cocoapods.org/'
+source 'https://github.com/HenkBoxma/rigi-ios-pod.git'
+
+target 'RigiExample' do
+  use_frameworks!
+
+  pod 'Rigi'
+
+  # Additionall pods
+  # pod 'SVProgressHUD'
+
+end
+```
+
 
 Once you update your Podfile you will need to run either `pod update` or `pod install --repo-update` to update your repos.
 

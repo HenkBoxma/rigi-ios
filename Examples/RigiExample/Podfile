@@ -1,7 +1,7 @@
 platform :ios, '11.0'
 
 source 'https://cdn.cocoapods.org/'
-source 'https://github.com/HenkBoxma/rigi-ios'
+source 'https://github.com/HenkBoxma/rigi-ios-pod.git'
 
 target 'RigiExample' do
   use_frameworks!
