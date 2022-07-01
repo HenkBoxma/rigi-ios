@@ -25,6 +25,8 @@
 		362C80B8285B7B20003713E0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 361474BC285B4924006E2DC6 /* Main.storyboard */; };
 		362C80C3285B7C1F003713E0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 361474BC285B4924006E2DC6 /* Main.storyboard */; };
 		362C80C4285B7C28003713E0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 361474C1285B4926006E2DC6 /* LaunchScreen.storyboard */; };
+		368D8C33285CA84C001B835F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 368D8C36285CA84C001B835F /* Localizable.strings */; };
+		368D8C34285CA84C001B835F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 368D8C36285CA84C001B835F /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +48,9 @@
 		362C80BD285B7B20003713E0 /* RigiExample Pseudo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "RigiExample Pseudo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		362C80C0285B7BFE003713E0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		362C80C2285B7C04003713E0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		368D8C35285CA84C001B835F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		368D8C37285CA851001B835F /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
+		368D8C38285CA852001B835F /* zu */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = zu; path = zu.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A24D42FC8D48C4ED363AB39E /* Pods_RigiExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RigiExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E070072A14112F177FED440B /* Pods-RigiExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RigiExample.debug.xcconfig"; path = "Target Support Files/Pods-RigiExample/Pods-RigiExample.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -105,6 +110,7 @@
 				361474BA285B4924006E2DC6 /* ViewController.swift */,
 				361474CD285B4BA7006E2DC6 /* ExampleViewController.swift */,
 				361474BF285B4926006E2DC6 /* Assets.xcassets */,
+				368D8C36285CA84C001B835F /* Localizable.strings */,
 				361474BC285B4924006E2DC6 /* Main.storyboard */,
 				361474C1285B4926006E2DC6 /* LaunchScreen.storyboard */,
 				361474CF285B5194006E2DC6 /* Fonts */,
@@ -212,6 +218,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				368D8C33285CA84C001B835F /* Localizable.strings in Resources */,
 				362C80C3285B7C1F003713E0 /* Main.storyboard in Resources */,
 				362C80C4285B7C28003713E0 /* LaunchScreen.storyboard in Resources */,
 				361474C0285B4926006E2DC6 /* Assets.xcassets in Resources */,
@@ -223,6 +230,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				368D8C34285CA84C001B835F /* Localizable.strings in Resources */,
 				362C80B5285B7B20003713E0 /* LaunchScreen.storyboard in Resources */,
 				362C80B6285B7B20003713E0 /* Assets.xcassets in Resources */,
 				362C80B7285B7B20003713E0 /* Fascinate-Regular.ttf in Resources */,
@@ -359,6 +367,16 @@
 				362C80C2285B7C04003713E0 /* en */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		368D8C36285CA84C001B835F /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				368D8C35285CA84C001B835F /* en */,
+				368D8C37285CA851001B835F /* nl */,
+				368D8C38285CA852001B835F /* zu */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

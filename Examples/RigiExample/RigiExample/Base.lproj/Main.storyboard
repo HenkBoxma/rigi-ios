@@ -28,8 +28,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is a small demo app showing some examples how to use Rigi in Xcode." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K2b-9p-e8g">
-                                <rect key="frame" x="20" y="160.5" width="374" height="41"/>
+                                <rect key="frame" x="20" y="139.5" width="374" height="41"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Placeholder" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YjC-Py-3g1">
+                                <rect key="frame" x="20" y="200.5" width="374" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -60,16 +66,22 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="YjC-Py-3g1" firstAttribute="width" secondItem="6Tk-OE-BBY" secondAttribute="width" constant="-40" id="Gkl-Tg-la6"/>
                             <constraint firstItem="1o8-5J-nBx" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="JTS-pP-4im"/>
                             <constraint firstItem="52v-Wu-uY4" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="55" id="ZtI-xs-Lqw"/>
                             <constraint firstItem="K2b-9p-e8g" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="bQp-dO-b5e"/>
                             <constraint firstItem="1o8-5J-nBx" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="d6b-k9-cT3"/>
                             <constraint firstItem="52v-Wu-uY4" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="ei9-Ux-I2G"/>
+                            <constraint firstItem="YjC-Py-3g1" firstAttribute="top" secondItem="K2b-9p-e8g" secondAttribute="bottom" constant="20" id="gpN-Kq-46Z"/>
                             <constraint firstItem="K2b-9p-e8g" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" constant="-40" id="hUI-io-ThA"/>
-                            <constraint firstItem="K2b-9p-e8g" firstAttribute="top" secondItem="52v-Wu-uY4" secondAttribute="bottom" constant="41" id="lfV-fC-EKv"/>
+                            <constraint firstItem="K2b-9p-e8g" firstAttribute="top" secondItem="52v-Wu-uY4" secondAttribute="bottom" constant="20" id="lfV-fC-EKv"/>
+                            <constraint firstItem="YjC-Py-3g1" firstAttribute="centerX" secondItem="K2b-9p-e8g" secondAttribute="centerX" id="qGK-Ef-MtA"/>
                             <constraint firstItem="1o8-5J-nBx" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="s5M-LY-dQ1"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="label" destination="YjC-Py-3g1" id="1kj-RL-V1N"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
