@@ -40,9 +40,31 @@ The minimum requirements for Rigi SDK for iOS are:
 
 <br />
 
-## Install the Rigi SDK
+## Localize the Xcode project
+
+
+### Enable localization in Xcode
+
+Enable base localization in the Xcode project. 
+This will set Storyboards and Xibs as the base and will add additional string files for each extra language. 
+
+<br/>
+
+### Add languages in Xcode
+
+Add your required languages to the Xcode project.
+
+You should also add a ***pseudo language*** that will only be used to load marked texts into your project and enables Rigi to capture screenshots and recognise and extract the marked texts. 
+
+Here we chose Zulu as a pseudo language. 
+
+![](https://raw.githubusercontent.com/HenkBoxma/rigi-ios/main/Docs/Assets/localization.png)
+
+
+## Add the Rigi SDK to the Xcode project
 
 SDK for iOS can be installed through [`CocoaPods`](https://cocoapods.org/)
+
 
 ### Cocoapods 
 Install cocoapods (if not already done). Open Terminal and run:
@@ -92,90 +114,17 @@ target 'RigiExample' do
 end
 ```
 
-
 Once you update your Podfile you will need to run either `pod update` or `pod install --repo-update` to update your repos.
 
 Open the project_name.xcworkspace with Xcode.
+<br/>
+<br/>
 
 
-## Configure your Xcode project
+## Setup the Rigi commandline tools
 
 
-### Enable localization in Xcode
-
-Enable base localization in the Xcode project. 
-This will set Storyboards and Xibs as the base and will add additional string files for each extra language. 
-
-
-### Add languages in Xcode
-
-Add your required languages to the Xcode project.
-
-You should also add a ***pseudo language*** that will only be used to load marked texts into your project and enables Rigi to capture screenshots and recognise and extract the marked texts. 
-
-Here we chose Zulu as a pseudo language. 
-
-![](https://raw.githubusercontent.com/HenkBoxma/rigi-ios/main/Docs/Assets/localization.png)
-
-
-### Add Rigi Target and Scheme in Xcode
-
-<!--<img src="https://raw.githubusercontent.com/HenkBoxma/rigi-ios/main/Docs/Assets/target-dupl.png" width="200" align="right">-->
-
-You can create a specific target and scheme for the Rigi builds. This keeps your production builds separated from the Rigi builds.
-
-In Xcode create (or copy) a new scheme and set App language to the new pseudo locale. 
-
-<img src="https://raw.githubusercontent.com/HenkBoxma/rigi-ios/main/Docs/Assets/target-dupl.png" width="200">
-
-When the locale can not be selected from the dropdown add a new launch argument  in the scheme
-
-```code
--AppleLanguages "(ZU)"
-```
-
-
-![](https://raw.githubusercontent.com/HenkBoxma/rigi-ios/main/Docs/Assets/scheme-edit4.png)
-
-
-
-### Enable Rigi in Xcode
-
-Optionally you can add a custom preprocessor flag to enable Rigi only for the Rigi build Target.
-
-![Add Rigi preprocessor flag](https://raw.githubusercontent.com/HenkBoxma/rigi-ios/main/Docs/Assets/build1.png)
-
-Activate the Rigi SDK in the appDelegate. 
-
-![](https://raw.githubusercontent.com/HenkBoxma/rigi-ios/main/Docs/Assets/app-del.png)
-
-
-```swift
-func application(_ application: UIApplication, didFinishLaunchingWithOptions 
-    launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-
-    #if RIGI_ENABLED
-        RigiSdk.shared.start()
-    #endif
-
-    return true
-}
-```
-
-
-## Link your Xcode project to Rigi
-
-### Setup a new project on the Rigi server
-
-1. Create a new Rigi project. 
-2. Select your base Xcode language as the Source language. In this example we use EN. 
-3. Select the the Pseudo language that you added to the Xcode project. In this example we use Zulu.
-
-TODO add 2 server-setup images
-
-
-
-### Extract all localisation files from Xcode project
+### Install Bartycrouch (optional)
 
 Optionally you can use the tool [BartyCrouch](https://github.com/Flinesoft/BartyCrouch) to extract your localised texts from Storyboards and Swift code and incrementally update all string files in the project.
 
@@ -198,6 +147,8 @@ bartycrouch init
 ```bash
 bartycrouch update 
 ```
+
+<br/>
 
 ### Setup the Rigi commandline tools
 
@@ -243,6 +194,70 @@ PROJECT_NAME="RIGI-PROJECT"
 #XCODE_PROJECT=~/Projects/Xcode/MY-PROJECT
 ```
 
+<br/>
+
+## Configure the Rigi SDK in Xcode
+
+
+### Add Rigi Target and Scheme in Xcode
+
+<!--<img src="https://raw.githubusercontent.com/HenkBoxma/rigi-ios/main/Docs/Assets/target-dupl.png" width="200" align="right">-->
+
+You can create a specific target and scheme for the Rigi builds. This keeps your production builds separated from the Rigi builds.
+
+In Xcode create (or copy) a new scheme and set App language to the new pseudo locale. 
+
+<img src="https://raw.githubusercontent.com/HenkBoxma/rigi-ios/main/Docs/Assets/target-dupl.png" width="200">
+
+When the locale can not be selected from the dropdown add a new launch argument  in the scheme
+
+```code
+-AppleLanguages "(ZU)"
+```
+
+
+![](https://raw.githubusercontent.com/HenkBoxma/rigi-ios/main/Docs/Assets/scheme-edit4.png)
+
+
+### Enable Rigi in Xcode
+
+Optionally you can add a custom preprocessor flag to enable Rigi only for the Rigi build Target.
+
+![Add Rigi preprocessor flag](https://raw.githubusercontent.com/HenkBoxma/rigi-ios/main/Docs/Assets/build1.png)
+
+Activate the Rigi SDK in the appDelegate. 
+
+![](https://raw.githubusercontent.com/HenkBoxma/rigi-ios/main/Docs/Assets/app-del.png)
+
+
+```swift
+func application(_ application: UIApplication, didFinishLaunchingWithOptions 
+    launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+
+    #if RIGI_ENABLED
+        RigiSdk.shared.start()
+    #endif
+
+    return true
+}
+```
+<br/>
+
+## Setup the project on the Rigi server
+
+### Setup a new project on the Rigi server
+
+1. Create a new Rigi project. 
+2. Select your base Xcode language as the Source language. In this example we use EN. 
+3. Select the the Pseudo language that you added to the Xcode project. In this example we use Zulu.
+
+![](https://raw.githubusercontent.com/HenkBoxma/rigi-ios/main/Docs/Assets/server-setup-1.png)
+
+![](https://raw.githubusercontent.com/HenkBoxma/rigi-ios/main/Docs/Assets/server-setup-2.png)
+
+<br/>
+
+
 ### Zip all localisation files from Xcode project
 
 Use the following command to find and **zip all string files** in the Xcode project to prepare for uploading to the Rigi server.
@@ -251,6 +266,7 @@ Use the following command to find and **zip all string files** in the Xcode proj
 cd [PROJECT_FOLDER]
 Pods/Rigi/bin/strings-collect.sh
 ```
+<br/>
 
 ### Upload the string files to the Rigi server
 
@@ -262,14 +278,31 @@ Use the following command to open a finder window with the zipped string files t
 ```
 From this folder the zipped string files can be uploaded to the Rigi server (using drag-and-drop)
 
-TODO: add image server-import- 1 t/m 7
+![](https://raw.githubusercontent.com/HenkBoxma/rigi-ios/main/Docs/Assets/server-import-2.png)
+
+![](https://raw.githubusercontent.com/HenkBoxma/rigi-ios/main/Docs/Assets/server-import-4.png)
+
+![](https://raw.githubusercontent.com/HenkBoxma/rigi-ios/main/Docs/Assets/server-import-5.png)
+
+![](https://raw.githubusercontent.com/HenkBoxma/rigi-ios/main/Docs/Assets/server-import-6.png)
+
+![](https://raw.githubusercontent.com/HenkBoxma/rigi-ios/main/Docs/Assets/server-import-7.png)
+
+
+**TODO: Is the procedure above correct and complete?**
+
 
 The Rigi tokens will have been added to the Pseudo language. The updated language files should now be downloaded and installed in the Xcode project.
 
+<br/>
 
 ### Download the (pseudo) string files from the Rigi server
 
+Next we can export the marked strings files (pseudo language) and import them in the Xcode project.
+
 Export the string files from the server by clicking 'Download files'. You should select the **pseudo language**. Optionally you can also export any other langauge.
+
+![](https://raw.githubusercontent.com/HenkBoxma/rigi-ios/main/Docs/Assets/server-download.png)
 
 After dowloading use following command to install the string files into the Xcode project. This command will look for downloaded zip files in the default **Downloads** folder. This can be changed in the **rigi.ini** settings file. 
 
@@ -277,7 +310,7 @@ After dowloading use following command to install the string files into the Xcod
 cd [PROJECT_FOLDER]
 Pods/Rigi/bin/strings-extract.sh
 ```
-
+<br/>
 
 ### Make previews in the Simulator (manual)
 
@@ -285,10 +318,11 @@ Now its time to capture previews of the translatable texts in the Xcode Simulato
 
 Navigate through the app and capture previews of all screens that contain translatable texts.
 
-TODO capture 1
+<img src="https://raw.githubusercontent.com/HenkBoxma/rigi-ios/main/Docs/Assets/capture-1.png" width="300">
 
 The previews will be saved into the Simulator data folder.
 
+<br/>
 
 ### Collect the previews to upload
 
@@ -301,8 +335,7 @@ cd [PROJECT_FOLDER]
 Pods/Rigi/bin/previews-peek.sh
 ```
 
-TODO preview-peek
-
+<img src="https://raw.githubusercontent.com/HenkBoxma/rigi-ios/main/Docs/Assets/preview-peek.png" width="700">
 
 When all previews are complete use the following command to **zip the previews** found in the Simulator folder.
 
@@ -310,6 +343,7 @@ When all previews are complete use the following command to **zip the previews**
 cd [PROJECT_FOLDER]
 Pods/Rigi/bin/previews-collect.sh
 ```
+<br/>
 
 ### Upload the previews to the Rigi server
 
@@ -319,11 +353,14 @@ Use the following command to open a finder window with the **zipped previews** t
 cd [PROJECT_FOLDER]
 Pods/Rigi/bin/previews-open.sh
 ```
+<img src="https://raw.githubusercontent.com/HenkBoxma/rigi-ios/main/Docs/Assets/preview-open.png" width="700">
+
+
 The previews can now be uploaded to the Rigi server. 
 
-Select ... then use select and drop the latest zipped previews file.
+Select the latest zipped previews, then use select and drop them into the previews uploader.
 
-TODO upload-previews
+![](https://raw.githubusercontent.com/HenkBoxma/rigi-ios/main/Docs/Assets/upload-previews.png)
 
 
 Download localization files from the Rigi server
