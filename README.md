@@ -363,11 +363,22 @@ Select the latest zipped previews, then use select and drop them into the previe
 ![](https://raw.githubusercontent.com/HenkBoxma/rigi-ios/main/Docs/Assets/upload-previews.png)
 
 
+
+## Translate in Rigi with previews
+
+TODO
+
+
+## Import translations into Xcode
+
+
 Download localization files from the Rigi server
 
 After making modifications to the translations or adding new texts to the pseudo language you can download the updated localisations files and extract them in the project folder.
 
  [PROJECT_FOLDER]/Rigi/bin/update-strings.sh 
+
+
 
 
 Adding new texts to the project
