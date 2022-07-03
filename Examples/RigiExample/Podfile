@@ -1,12 +1,19 @@
 platform :ios, '11.0'
 
-#source 'https://cdn.cocoapods.org/'
-#source 'https://github.com/HenkBoxma/rigi-ios-pod.git'
+use_frameworks!
+
+source 'https://cdn.cocoapods.org/'
+source 'https://github.com/HenkBoxma/rigi-ios-pod.git'
+
+def shared_pods
+  # Add shared pods here
+end
 
 target 'RigiExample' do
-  use_frameworks!
+  shared_pods
+end
 
-  #pod 'Rigi', '0.1.2'
-  pod 'Rigi', :path => '../../../Rigi-Source/Rigi-Framework'
-
+target 'RigiExample Pseudo' do
+  shared_pods
+  pod 'Rigi'
 end

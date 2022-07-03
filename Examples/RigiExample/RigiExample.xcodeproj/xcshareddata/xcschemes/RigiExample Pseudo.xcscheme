@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "362C80AB285B7B20003713E0"
+               BlueprintIdentifier = "36D76B89287231A3006DD5A8"
                BuildableName = "RigiExample Pseudo.app"
                BlueprintName = "RigiExample Pseudo"
                ReferencedContainer = "container:RigiExample.xcodeproj">
@@ -44,7 +44,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "362C80AB285B7B20003713E0"
+            BlueprintIdentifier = "36D76B89287231A3006DD5A8"
             BuildableName = "RigiExample Pseudo.app"
             BlueprintName = "RigiExample Pseudo"
             ReferencedContainer = "container:RigiExample.xcodeproj">
@@ -67,7 +67,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "362C80AB285B7B20003713E0"
+            BlueprintIdentifier = "36D76B89287231A3006DD5A8"
             BuildableName = "RigiExample Pseudo.app"
             BlueprintName = "RigiExample Pseudo"
             ReferencedContainer = "container:RigiExample.xcodeproj">

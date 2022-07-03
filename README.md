@@ -61,6 +61,29 @@ Here we chose Zulu as a pseudo language.
 ![](https://raw.githubusercontent.com/HenkBoxma/rigi-ios/main/Docs/Assets/localization.png)
 
 
+## Configure the Rigi SDK in Xcode
+
+
+### Add Rigi Target and Scheme in Xcode
+
+<!--<img src="https://raw.githubusercontent.com/HenkBoxma/rigi-ios/main/Docs/Assets/target-dupl.png" width="200" align="right">-->
+
+You can create a specific target and scheme for the Rigi builds. This keeps your production builds separated from the Rigi builds.
+
+In Xcode create (or copy) a new scheme and set App language to the new pseudo locale. 
+
+<img src="https://raw.githubusercontent.com/HenkBoxma/rigi-ios/main/Docs/Assets/target-dupl.png" width="200">
+
+When the locale can not be selected from the dropdown add a new launch argument  in the scheme
+
+```code
+-AppleLanguages "(ZU)"
+```
+
+
+![](https://raw.githubusercontent.com/HenkBoxma/rigi-ios/main/Docs/Assets/scheme-edit4.png)
+
+
 ## Add the Rigi SDK to the Xcode project
 
 SDK for iOS can be installed through [`CocoaPods`](https://cocoapods.org/)
@@ -100,17 +123,22 @@ Your Podfile will now look something like this:
 ```bash
 platform :ios, '11.0'
 
+use_frameworks!
+
 source 'https://cdn.cocoapods.org/'
 source 'https://github.com/HenkBoxma/rigi-ios-pod.git'
 
+def shared_pods
+  # Add shared pods here
+end
+
 target 'RigiExample' do
-  use_frameworks!
+  shared_pods
+end
 
+target 'RigiExample Pseudo' do
+  shared_pods
   pod 'Rigi'
-
-  # Additionall pods
-  # pod 'SVProgressHUD'
-
 end
 ```
 
@@ -118,6 +146,41 @@ Once you update your Podfile you will need to run either `pod update` or `pod in
 
 Open the project_name.xcworkspace with Xcode.
 <br/>
+<br/>
+
+### Enable Rigi in Xcode
+
+Add a custom preprocessor flag to enable Rigi only for the Rigi build Target.
+
+![Add Rigi preprocessor flag](https://raw.githubusercontent.com/HenkBoxma/rigi-ios/main/Docs/Assets/build1.png)
+
+Activate the Rigi SDK in the appDelegate. 
+
+![](https://raw.githubusercontent.com/HenkBoxma/rigi-ios/main/Docs/Assets/app-del.png)
+
+
+```swift
+
+import UIKit
+
+#if RIGI_ENABLED
+import Rigi
+#endif
+
+@main
+class AppDelegate: UIResponder, UIApplicationDelegate {
+
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+
+        #if RIGI_ENABLED
+        RigiSdk.shared.start()
+        #endif
+
+        return true
+    }
+}
+
+```
 <br/>
 
 
@@ -194,64 +257,6 @@ PROJECT_NAME="RIGI-PROJECT"
 #XCODE_PROJECT=~/Projects/Xcode/MY-PROJECT
 ```
 
-<br/>
-
-## Configure the Rigi SDK in Xcode
-
-
-### Add Rigi Target and Scheme in Xcode
-
-<!--<img src="https://raw.githubusercontent.com/HenkBoxma/rigi-ios/main/Docs/Assets/target-dupl.png" width="200" align="right">-->
-
-You can create a specific target and scheme for the Rigi builds. This keeps your production builds separated from the Rigi builds.
-
-In Xcode create (or copy) a new scheme and set App language to the new pseudo locale. 
-
-<img src="https://raw.githubusercontent.com/HenkBoxma/rigi-ios/main/Docs/Assets/target-dupl.png" width="200">
-
-When the locale can not be selected from the dropdown add a new launch argument  in the scheme
-
-```code
--AppleLanguages "(ZU)"
-```
-
-
-![](https://raw.githubusercontent.com/HenkBoxma/rigi-ios/main/Docs/Assets/scheme-edit4.png)
-
-
-### Enable Rigi in Xcode
-
-Optionally you can add a custom preprocessor flag to enable Rigi only for the Rigi build Target.
-
-![Add Rigi preprocessor flag](https://raw.githubusercontent.com/HenkBoxma/rigi-ios/main/Docs/Assets/build1.png)
-
-Activate the Rigi SDK in the appDelegate. 
-
-![](https://raw.githubusercontent.com/HenkBoxma/rigi-ios/main/Docs/Assets/app-del.png)
-
-
-```swift
-
-import UIKit
-
-#if RIGI_ENABLED
-import Rigi
-#endif
-
-@main
-class AppDelegate: UIResponder, UIApplicationDelegate {
-
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-
-        #if RIGI_ENABLED
-        RigiSdk.shared.start()
-        #endif
-
-        return true
-    }
-}
-
-```
 <br/>
 
 ## Setup the project on the Rigi server

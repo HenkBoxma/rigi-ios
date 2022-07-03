@@ -1,22 +1,16 @@
 PODS:
-  - Rigi (1.0.1):
-    - Rigi/bin (= 1.0.1)
-    - Rigi/Classes (= 1.0.1)
-    - Rigi/docs (= 1.0.1)
-  - Rigi/bin (1.0.1)
-  - Rigi/Classes (1.0.1)
-  - Rigi/docs (1.0.1)
+  - Rigi (0.1.4)
 
 DEPENDENCIES:
-  - Rigi (from `../../../Rigi-Source/Rigi-Framework`)
+  - Rigi
 
-EXTERNAL SOURCES:
-  Rigi:
-    :path: "../../../Rigi-Source/Rigi-Framework"
+SPEC REPOS:
+  https://github.com/HenkBoxma/rigi-ios-pod:
+    - Rigi
 
 SPEC CHECKSUMS:
-  Rigi: 6e2ea45fa060b3cf0d74a70477805121f9d633a4
+  Rigi: 5505de18ef96cfff0ec633caedc441832cb23540
 
-PODFILE CHECKSUM: 7840e7c6e20ef328eb34ea3afd3bbed5560b8d9d
+PODFILE CHECKSUM: 5f4f1b31d1ffa2592f43fb79925f9f629a4dc073
 
 COCOAPODS: 1.11.3
