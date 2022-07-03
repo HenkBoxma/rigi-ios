@@ -1,11 +1,12 @@
 platform :ios, '11.0'
 
-source 'https://cdn.cocoapods.org/'
-source 'https://github.com/HenkBoxma/rigi-ios-pod.git'
+#source 'https://cdn.cocoapods.org/'
+#source 'https://github.com/HenkBoxma/rigi-ios-pod.git'
 
 target 'RigiExample' do
   use_frameworks!
 
-  pod 'Rigi'
+  #pod 'Rigi', '0.1.2'
+  pod 'Rigi', :path => '../../../Rigi-Source/Rigi-Framework'
 
 end
