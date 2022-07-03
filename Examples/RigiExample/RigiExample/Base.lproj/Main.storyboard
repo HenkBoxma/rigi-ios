@@ -99,10 +99,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z0u-h7-9YX" userLabel="Content view">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="867"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="855"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="37" translatesAutoresizingMaskIntoConstraints="NO" id="soP-5E-Qf8">
-                                                <rect key="frame" x="20" y="80" width="374" height="777"/>
+                                                <rect key="frame" x="20" y="80" width="374" height="765"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="System Large Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ogV-1j-Ez1">
                                                         <rect key="frame" x="0.0" y="0.0" width="374" height="37"/>
@@ -173,19 +173,19 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fascinate-Regular 18.0" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hTW-en-iqJ">
-                                                        <rect key="frame" x="0.0" y="607" width="219" height="24"/>
+                                                        <rect key="frame" x="0.0" y="607" width="187" height="21"/>
                                                         <fontDescription key="fontDescription" name="Fascinate-Regular" family="Fascinate" pointSize="18"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fascinate-Regular 24.0" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RfA-u1-Jgz">
-                                                        <rect key="frame" x="0.0" y="668" width="292.5" height="32"/>
+                                                        <rect key="frame" x="0.0" y="665" width="249" height="28"/>
                                                         <fontDescription key="fontDescription" name="Fascinate-Regular" family="Fascinate" pointSize="24"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fascinate-Regular 30.0" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AV6-JG-AVV">
-                                                        <rect key="frame" x="0.0" y="737" width="365" height="40"/>
+                                                        <rect key="frame" x="0.0" y="730" width="311.5" height="35"/>
                                                         <fontDescription key="fontDescription" name="Fascinate-Regular" family="Fascinate" pointSize="30"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>

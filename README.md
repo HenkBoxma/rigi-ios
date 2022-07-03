@@ -231,15 +231,26 @@ Activate the Rigi SDK in the appDelegate.
 
 
 ```swift
-func application(_ application: UIApplication, didFinishLaunchingWithOptions 
-    launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
-    #if RIGI_ENABLED
+import UIKit
+
+#if RIGI_ENABLED
+import Rigi
+#endif
+
+@main
+class AppDelegate: UIResponder, UIApplicationDelegate {
+
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+
+        #if RIGI_ENABLED
         RigiSdk.shared.start()
-    #endif
+        #endif
 
-    return true
+        return true
+    }
 }
+
 ```
 <br/>
 
