@@ -290,7 +290,7 @@ Use the following command to open a finder window with the zipped string files t
 
 ```bash
  cd [PROJECT_FOLDER]
- Pods/Rigi/bin/uploads-open.sh
+ Pods/Rigi/bin/strings-open.sh
 ```
 From this folder the zipped string files can be uploaded to the Rigi server (using drag-and-drop)
 
