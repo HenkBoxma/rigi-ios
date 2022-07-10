@@ -185,6 +185,76 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 
 ```
+
+### Configure the Rigi SDK
+
+For most project the Rigi SDK will work fine out of the box. For specific needs the SDK has several options that can be customised. This section will give an overview of these options.
+
+The SDK settings are available on the global ***RigiSdk.shared.settings*** and can be customised as follows:
+
+```swift
+
+	RigiSdk.shared.settings.addLabelBorders = true
+	RigiSdk.shared.settings.labelBorderColor = "#800000"
+ 	RigiSdk.shared.start()
+
+```
+The following configuration options are available:
+
+```swift
+
+    // Enable (debug) logging
+    public var loggingEnabled = true
+
+    // Show the scan button
+    public var isButtonVisible = true
+
+    // Add timestamps to the preview names
+    public var addFileTimestamps = true
+
+    // Enable auto scanning when new view controllers are detected in the view hierarchy
+    public var enableAutoScanning = false
+    public var autoScanInterval: Double = 1 // Should be greater than the delay time below.
+    public var autoScanCaptureDelay: Double = 0.7
+
+    // This option will make sure only the upper view controller is scanned when multiple view controllers are stacked on the screen.
+    // For example in MobilePark the onboarding flow will stack multiple view controllers.
+    public var onlyScanUpperViewController = true
+
+    // Temporarily clear textfields and textviews to snapshot hint texts
+    public var autoClearTextFields = true
+
+    // By default embedded or child view controllers will not handled as an 'upper' view controller (like popup windows)
+    // Optionally you can register embedded/child view controllers that should be handled as upper view controllers.
+    // For example an embedded menu view controller should be regarded as an upper view controller
+    // and thus the capture should ignore all views 'behind' the menu view controller.
+   public var additionalUpperViewControllers: [String] = []
+
+    // What is the minimum part of the label that should be visible on the screen?
+    public var minimumOnscreenHorz = 0.8
+    public var minimumOnscreenVert = 0.8
+
+    // Clip the offscreen part of the label?
+    public var clipOffscreen = true
+    public var clipStyle: ClipBounds = .upperViewController
+
+    // Select the entire button instead of the label inside a UIButton
+    public var expandToButton = false
+
+    // Add simulator border
+    public var addDeviceBezels = true
+
+    public var previewPosition: DivPosition = .center
+
+    // Add borders around translatable texts
+    public var addLabelBorders = false
+    public var labelBorderColor = "#0a3679"
+
+    // Include the Apple system font (San Francisco) for use in Windows
+    public var includeAppleWebFonts = true
+
+```
+
 <br/>
 
 
