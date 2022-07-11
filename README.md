@@ -7,6 +7,83 @@
 
 Create Rigi previews for your iOS project.
 
+
+<style>
+/**
+ *  Example CSS file that can be used to style Splash HTML output
+ *  Copyright (c) John Sundell 2018
+ *  MIT license - see LICENSE.md
+ */
+
+pre {
+    margin-bottom: 1.5em;
+    background-color: #1a1a1a;
+    padding: 16px 0;
+    border-radius: 16px;
+}
+
+pre code {
+    font-family: monospace;
+    display: block;
+    padding: 0 20px;
+    color: #a9bcbc;
+    line-height: 1.4em;
+    font-size: 0.95em;
+    overflow-x: auto;
+    white-space: pre;
+    -webkit-overflow-scrolling: touch;
+}
+
+pre code .swift {
+    color: #fa641e;
+    font-weight: stronger;
+    font-size: 1.30em;
+}
+
+pre code .bash {
+    color: #fa641e;
+    font-weight: stronger;
+    font-size: 1.30em;
+}
+
+pre code .keyword {
+    color: #e73289;
+}
+
+pre code .type {
+    color: #8281ca;
+}
+
+pre code .call {
+    color: #348fe5;
+}
+
+pre code .property {
+    color: #21ab9d;
+}
+
+pre code .number {
+    color: #db6f57;
+}
+
+pre code .string {
+    color: #fa641e;
+}
+
+pre code .comment {
+    color: #6b8a94;
+}
+
+pre code .dotAccess {
+    color: #92b300;
+}
+
+pre code .preprocessing {
+    color: #b68a00;
+}
+</style>
+
+
 ## Table of contents
 
   1. [Introduction](#introduction)
@@ -82,9 +159,8 @@ In Xcode create (or copy) a new scheme and set the App language to the ***pseudo
 
 When the locale can not be selected from the dropdown add a new launch argument  in the scheme
 
-```code
--AppleLanguages "(ZU)"
-```
+<pre class="splash"><code>code
+-<span class="type">AppleLanguages</span> <span class="string">"(ZU)"</span></code></pre>
 
 
 ![](https://raw.githubusercontent.com/HenkBoxma/rigi-ios/main/Docs/Assets/scheme-edit4.png)
@@ -96,55 +172,50 @@ SDK for iOS can be installed through [`CocoaPods`](https://cocoapods.org/)
 
 Install cocoapods (if not already done). Open Terminal and run:
 
-```bash
-sudo gem install cocoapods
-```
+<pre class="splash"><code><span class="bash">bash</span>
+sudo gem install cocoapods</code></pre>
 
 Setup cocoapods in your project (if not already done). Goto your project's root folder and run: 
 
-```bash
-pod init
-pod install
-```
+<pre class="splash"><code><span class="bash">bash</span>
+pod <span class="keyword">init</span>
+pod install</code></pre>
 
 This will setup cocoapods in the project. CocoaPods will create a new project_name.xcworkspace file, a new Podfile and a Pods folder.
 
 Add the following lines to the top of the `Podfile`:
 
-```bash
-source 'https://github.com/HenkBoxma/rigi-ios'
-source 'https://cdn.cocoapods.org/'
-```
+<pre class="splash"><code><span class="bash">bash</span>
+source 'https://github.<span class="property">com</span>/<span class="type">HenkBoxma</span>/rigi-ios'
+source 'https://cdn.<span class="property">cocoapods</span>.<span class="property">org</span>/'</code></pre>
 
 Add the Rigi pod. Optionally specify the version you want to use, like so:
 
-```bash
-pod 'Rigi', '~> 1.0'
-```
+<pre class="splash"><code><span class="bash">bash</span>
+pod '<span class="type">Rigi</span>', '~&gt; <span class="number">1.0</span>'</code></pre>
 
 Your Podfile will now look something like this:
 
-```bash
-platform :ios, '11.0'
+<pre class="splash"><code><span class="bash">bash</span>
+platform :ios, '<span class="number">11.0</span>'
 
 use_frameworks!
 
-source 'https://cdn.cocoapods.org/'
-source 'https://github.com/HenkBoxma/rigi-ios-pod.git'
+source 'https://cdn.<span class="property">cocoapods</span>.<span class="property">org</span>/'
+source 'https://github.<span class="property">com</span>/<span class="type">HenkBoxma</span>/rigi-ios-pod.<span class="property">git</span>'
 
 def shared_pods
-  # Add shared pods here
+  # <span class="type">Add</span> shared pods here
 end
 
-target 'RigiExample' do
+target '<span class="type">RigiExample</span>' <span class="keyword">do</span>
   shared_pods
 end
 
-target 'RigiExample Pseudo' do
+target '<span class="type">RigiExample Pseudo</span>' <span class="keyword">do</span>
   shared_pods
-  pod 'Rigi'
-end
-```
+  pod '<span class="type">Rigi</span>'
+end</code></pre>
 
 Once you update your Podfile you will need to run either `pod update` or `pod install --repo-update` to update your repos.
 
@@ -163,28 +234,26 @@ Activate the Rigi SDK in the appDelegate.
 ![](https://raw.githubusercontent.com/HenkBoxma/rigi-ios/main/Docs/Assets/app-del.png)
 
 
-```swift
+<pre class="splash"><code><span class="swift">swift</span>
 
-import UIKit
+<span class="keyword">import</span> UIKit
 
-#if RIGI_ENABLED
-import Rigi
-#endif
+<span class="preprocessing">#if RIGI_ENABLED</span>
+<span class="keyword">import</span> Rigi
+<span class="preprocessing">#endif</span>
 
-@main
-class AppDelegate: UIResponder, UIApplicationDelegate {
+<span class="keyword">@main
+class</span> AppDelegate: <span class="type">UIResponder</span>, <span class="type">UIApplicationDelegate</span> {
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+    <span class="keyword">func</span> application(<span class="keyword">_</span> application: <span class="type">UIApplication</span>, didFinishLaunchingWithOptions launchOptions: [<span class="type">UIApplication</span>.<span class="type">LaunchOptionsKey</span>: <span class="type">Any</span>]?) -&gt; <span class="type">Bool</span> {
 
-        #if RIGI_ENABLED
-        RigiSdk.shared.start()
-        #endif
+        <span class="preprocessing">#if RIGI_ENABLED</span>
+        <span class="type">RigiSdk</span>.<span class="property">shared</span>.<span class="call">start</span>()
+        <span class="preprocessing">#endif</span>
 
-        return true
+        <span class="keyword">return true</span>
     }
-}
-
-```
+}</code></pre>
 
 ### Configure the Rigi SDK
 
@@ -192,68 +261,64 @@ For most project the Rigi SDK will work fine out of the box. For specific needs 
 
 The SDK settings are available on the global ***RigiSdk.shared.settings*** and can be customised as follows:
 
-```swift
+<pre class="splash"><code><span class="swift">swift</span>
 
-	RigiSdk.shared.settings.addLabelBorders = true
-	RigiSdk.shared.settings.labelBorderColor = "#800000"
- 	RigiSdk.shared.start()
-
-```
+	<span class="type">RigiSdk</span>.<span class="property">shared</span>.<span class="property">settings</span>.<span class="property">addLabelBorders</span> = <span class="keyword">true</span>
+	<span class="type">RigiSdk</span>.<span class="property">shared</span>.<span class="property">settings</span>.<span class="property">labelBorderColor</span> = <span class="string">"#800000"</span>
+ 	<span class="type">RigiSdk</span>.<span class="property">shared</span>.<span class="call">start</span>()</code></pre>
 The following configuration options are available:
 
-```swift
+<pre class="splash"><code><span class="swift">swift</span>
 
-    // Enable (debug) logging
-    public var loggingEnabled = true
+    <span class="comment">// Enable (debug) logging</span>
+    <span class="keyword">public var</span> loggingEnabled = <span class="keyword">true</span>
 
-    // Show the scan button
-    public var isButtonVisible = true
+    <span class="comment">// Show the scan button</span>
+    <span class="keyword">public var</span> isButtonVisible = <span class="keyword">true</span>
 
-    // Add timestamps to the preview names
-    public var addFileTimestamps = true
+    <span class="comment">// Add timestamps to the preview names</span>
+    <span class="keyword">public var</span> addFileTimestamps = <span class="keyword">true</span>
 
-    // Enable auto scanning when new view controllers are detected in the view hierarchy
-    public var enableAutoScanning = false
-    public var autoScanInterval: Double = 1 // Should be greater than the delay time below.
-    public var autoScanCaptureDelay: Double = 0.7
+    <span class="comment">// Enable auto scanning when new view controllers are detected in the view hierarchy</span>
+    <span class="keyword">public var</span> enableAutoScanning = <span class="keyword">false
+    public var</span> autoScanInterval: <span class="type">Double</span> = <span class="number">1</span> <span class="comment">// Should be greater than the delay time below.</span>
+    <span class="keyword">public var</span> autoScanCaptureDelay: <span class="type">Double</span> = <span class="number">0.7</span>
 
-    // This option will make sure only the upper view controller is scanned when multiple view controllers are stacked on the screen.
-    // For example in MobilePark the onboarding flow will stack multiple view controllers.
-    public var onlyScanUpperViewController = true
+    <span class="comment">// This option will make sure only the upper view controller is scanned when multiple view controllers are stacked on the screen.
+    // For example in MobilePark the onboarding flow will stack multiple view controllers.</span>
+    <span class="keyword">public var</span> onlyScanUpperViewController = <span class="keyword">true</span>
 
-    // Temporarily clear textfields and textviews to snapshot hint texts
-    public var autoClearTextFields = true
+    <span class="comment">// Temporarily clear textfields and textviews to snapshot hint texts</span>
+    <span class="keyword">public var</span> autoClearTextFields = <span class="keyword">true</span>
 
-    // By default embedded or child view controllers will not handled as an 'upper' view controller (like popup windows)
+    <span class="comment">// By default embedded or child view controllers will not handled as an 'upper' view controller (like popup windows)
     // Optionally you can register embedded/child view controllers that should be handled as upper view controllers.
     // For example an embedded menu view controller should be regarded as an upper view controller
-    // and thus the capture should ignore all views 'behind' the menu view controller.
-   public var additionalUpperViewControllers: [String] = []
+    // and thus the capture should ignore all views 'behind' the menu view controller.</span>
+   <span class="keyword">public var</span> additionalUpperViewControllers: [<span class="type">String</span>] = []
 
-    // What is the minimum part of the label that should be visible on the screen?
-    public var minimumOnscreenHorz = 0.8
-    public var minimumOnscreenVert = 0.8
+    <span class="comment">// What is the minimum part of the label that should be visible on the screen?</span>
+    <span class="keyword">public var</span> minimumOnscreenHorz = <span class="number">0.8</span>
+    <span class="keyword">public var</span> minimumOnscreenVert = <span class="number">0.8</span>
 
-    // Clip the offscreen part of the label?
-    public var clipOffscreen = true
-    public var clipStyle: ClipBounds = .upperViewController
+    <span class="comment">// Clip the offscreen part of the label?</span>
+    <span class="keyword">public var</span> clipOffscreen = <span class="keyword">true
+    public var</span> clipStyle: <span class="type">ClipBounds</span> = .<span class="dotAccess">upperViewController</span>
 
-    // Select the entire button instead of the label inside a UIButton
-    public var expandToButton = false
+    <span class="comment">// Select the entire button instead of the label inside a UIButton</span>
+    <span class="keyword">public var</span> expandToButton = <span class="keyword">false</span>
 
-    // Add simulator border
-    public var addDeviceBezels = true
+    <span class="comment">// Add simulator border</span>
+    <span class="keyword">public var</span> addDeviceBezels = <span class="keyword">true
 
-    public var previewPosition: DivPosition = .center
+    public var</span> previewPosition: <span class="type">DivPosition</span> = .<span class="dotAccess">center</span>
 
-    // Add borders around translatable texts
-    public var addLabelBorders = false
-    public var labelBorderColor = "#0a3679"
+    <span class="comment">// Add borders around translatable texts</span>
+    <span class="keyword">public var</span> addLabelBorders = <span class="keyword">false
+    public var</span> labelBorderColor = <span class="string">"#0a3679"</span>
 
-    // Include the Apple system font (San Francisco) for use in Windows
-    public var includeAppleWebFonts = true
-
-```
+    <span class="comment">// Include the Apple system font (San Francisco) for use in Windows</span>
+    <span class="keyword">public var</span> includeAppleWebFonts = <span class="keyword">true</span></code></pre>
 
 <br/>
 
@@ -272,21 +337,18 @@ See: https://github.com/Flinesoft/BartyCrouch
 
 ##### Bartycrouch installation:
 
-```bash
-brew install bartycrouch 
-```
+<pre class="splash"><code><span class="bash">bash</span>
+brew install bartycrouch</code></pre>
 
 #### Bartycrouch initialisation:
 
-```bash
-bartycrouch init 
-```
+<pre class="splash"><code><span class="bash">bash</span>
+bartycrouch <span class="keyword">init</span></code></pre>
 
 #### Update string files:
 
-```bash
-bartycrouch update 
-```
+<pre class="splash"><code><span class="bash">bash</span>
+bartycrouch update</code></pre>
 
 <br/>
 
@@ -294,43 +356,41 @@ bartycrouch update
 
 To setup the Rigi commandline tools you need to create a ***rigi.ini*** file in your project root folder. A template for the ini file is availlable in the Rigi Pods folder. You can copy the template to your project folder as follows:
 
-```bash
-cd [PROJECT_FOLDER]
-mkdir Rigi
-cp Pods/Rigi/docs/rigi.ini Rigi
-```
+<pre class="splash"><code><span class="bash">bash</span>
+cd [<span class="type">PROJECT_FOLDER</span>]
+mkdir <span class="type">Rigi</span>
+cp <span class="type">Pods</span>/<span class="type">Rigi</span>/docs/rigi.<span class="property">ini</span> <span class="type">Rigi</span></code></pre>
 
 The ***rigi.ini*** file has several settings that can be customised. The ***PROJECT_NAME*** is required and should exactly match the project name on the Rigi server. 
 
 For most projects the other settings can be left default, however, they can customised set if needed.
 
-```bash
-edit Rigi/rigi.ini
+<pre class="splash"><code><span class="bash">bash</span>
+edit <span class="type">Rigi</span>/rigi.<span class="property">ini</span>
 
 # --------------------
-# Babylon SDK settings
+# <span class="type">Babylon SDK</span> settings
 # --------------------
 
-# Rigi project name:
-# - Should match the project name on the Rigi server
+# <span class="type">Rigi</span> project name:
+# - <span class="type">Should</span> match the project name on the <span class="type">Rigi</span> server
 
-PROJECT_NAME="RIGI-PROJECT"
+<span class="type">PROJECT_NAME</span>=<span class="string">"RIGI-PROJECT"</span>
 
-# Folder where downloaded string files will be saved:
-# - If empty the default download folder will be used
+# <span class="type">Folder</span> <span class="keyword">where</span> downloaded string files will be saved:
+# - <span class="type">If</span> empty the <span class="keyword">default</span> download folder will be used
 
-#DOWNLOAD_FOLDER=~/Downloads
+#DOWNLOAD_FOLDER=~/<span class="type">Downloads</span>
 
-# Simulator documents folder:
-# - If empty the last used simulator rigi folder will be used
+# <span class="type">Simulator</span> documents folder:
+# - <span class="type">If</span> empty the last used simulator rigi folder will be used
 
-#SIMULATOR_DOCUMENTS=~/Library/Developer/CoreSimulator/Devices/B6D3A06C-8B50-43D8-B3EE-7469EF7312B7/data/Containers/Data/Application/BFDE44A9-AF81-4B29-8685-BD728F1CEBE3/Documents
+#SIMULATOR_DOCUMENTS=~/<span class="type">Library</span>/<span class="type">Developer</span>/<span class="type">CoreSimulator</span>/<span class="type">Devices</span>/<span class="type">B6D3A06C</span>-8B50-43D8-<span class="type">B3EE</span>-7469EF7312B7/data/<span class="type">Containers</span>/<span class="type">Data</span>/<span class="type">Application</span>/<span class="type">BFDE44A9</span>-<span class="type">AF81</span>-4B29-<span class="number">8685</span>-<span class="type">BD728F1CEBE3</span>/<span class="type">Documents</span>
 
-# Xcode project folder:
-# - If empty the Rigi sdk will try to find the project folder.
+# <span class="type">Xcode</span> project folder:
+# - <span class="type">If</span> empty the <span class="type">Rigi</span> sdk will <span class="keyword">try</span> to find the project folder.
 
-#XCODE_PROJECT=~/Projects/Xcode/MY-PROJECT
-```
+#XCODE_PROJECT=~/<span class="type">Projects</span>/<span class="type">Xcode</span>/<span class="type">MY</span>-<span class="type">PROJECT</span></code></pre>
 
 <br/>
 
@@ -365,20 +425,18 @@ To make translatable previews we need to add **Rigi tokens** to the **psuedo lan
 
 Use the following command to find and **zip all string files** in the Xcode project to prepare for uploading to the Rigi server.
 
-```bash
-cd [PROJECT_FOLDER]
-Pods/Rigi/bin/strings-collect.sh
-```
+<pre class="splash"><code><span class="bash">bash</span>
+cd [<span class="type">PROJECT_FOLDER</span>]
+<span class="type">Pods</span>/<span class="type">Rigi</span>/bin/strings-collect.<span class="property">sh</span></code></pre>
 <br/>
 
 ### Upload the string files to the Rigi server
 
 Use the following command to open a finder window with the zipped string files that can be uploaded to the Rigi server.
 
-```bash
- cd [PROJECT_FOLDER]
- Pods/Rigi/bin/strings-open.sh
-```
+<pre class="splash"><code><span class="bash">bash</span>
+ cd [<span class="type">PROJECT_FOLDER</span>]
+ <span class="type">Pods</span>/<span class="type">Rigi</span>/bin/strings-open.<span class="property">sh</span></code></pre>
 From this folder the zipped string files can be uploaded to the Rigi server (using drag-and-drop)
 
 ![](https://raw.githubusercontent.com/HenkBoxma/rigi-ios/main/Docs/Assets/server-import-2.png)
@@ -405,10 +463,9 @@ Export the string files from the server by clicking 'Download files'. You should
 
 After dowloading use following command to install the string files into the Xcode project. This command will look for downloaded zip files in the default **Downloads** folder. This can be changed in the **rigi.ini** settings file. 
 
-```bash
-cd [PROJECT_FOLDER]
-Pods/Rigi/bin/strings-extract.sh
-```
+<pre class="splash"><code><span class="bash">bash</span>
+cd [<span class="type">PROJECT_FOLDER</span>]
+<span class="type">Pods</span>/<span class="type">Rigi</span>/bin/strings-extract.<span class="property">sh</span></code></pre>
 <br/>
 
 ## Make previews
@@ -433,29 +490,26 @@ You can use the following command to **open the previews in the Simulator folder
 
 This command will try to find the latest saved Rigi preview in any Xcode Simulator folder. When this is not working for your project you can specify a specific Xcode Simulator folder in the **rigi.ini** settings file. 
 
-```bash
-cd [PROJECT_FOLDER]
-Pods/Rigi/bin/previews-peek.sh
-```
+<pre class="splash"><code><span class="bash">bash</span>
+cd [<span class="type">PROJECT_FOLDER</span>]
+<span class="type">Pods</span>/<span class="type">Rigi</span>/bin/previews-peek.<span class="property">sh</span></code></pre>
 
 <img src="https://raw.githubusercontent.com/HenkBoxma/rigi-ios/main/Docs/Assets/preview-peek.png" width="700">
 
 When all previews are complete use the following command to **zip the previews** found in the Simulator folder.
 
-```bash
-cd [PROJECT_FOLDER]
-Pods/Rigi/bin/previews-collect.sh
-```
+<pre class="splash"><code><span class="bash">bash</span>
+cd [<span class="type">PROJECT_FOLDER</span>]
+<span class="type">Pods</span>/<span class="type">Rigi</span>/bin/previews-collect.<span class="property">sh</span></code></pre>
 <br/>
 
 ### Upload the previews to the Rigi server
 
 Use the following command to open a finder window with the **zipped previews** that can be uploaded.
 
-```bash
-cd [PROJECT_FOLDER]
-Pods/Rigi/bin/previews-open.sh
-```
+<pre class="splash"><code><span class="bash">bash</span>
+cd [<span class="type">PROJECT_FOLDER</span>]
+<span class="type">Pods</span>/<span class="type">Rigi</span>/bin/previews-open.<span class="property">sh</span></code></pre>
 <img src="https://raw.githubusercontent.com/HenkBoxma/rigi-ios/main/Docs/Assets/preview-open.png" width="700">
 
 
@@ -495,10 +549,9 @@ Export the string files from the server by clicking 'Download files'. You should
 
 After dowloading the string files from the server use following command to install the files into the Xcode project. This command will look for downloaded zip files in the default **Downloads** folder. This can be changed in the **rigi.ini** settings file. 
 
-```bash
-cd [PROJECT_FOLDER]
-Pods/Rigi/bin/strings-extract.sh
-```
+<pre class="splash"><code><span class="bash">bash</span>
+cd [<span class="type">PROJECT_FOLDER</span>]
+<span class="type">Pods</span>/<span class="type">Rigi</span>/bin/strings-extract.<span class="property">sh</span></code></pre>
 <br/>
 
 
@@ -507,6 +560,7 @@ Pods/Rigi/bin/strings-extract.sh
 Copyright (c) 2022 Rigi.io
 
 <br />
+
 
 
 
