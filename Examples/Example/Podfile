@@ -1,6 +1,6 @@
 source 'https://github.com/Dimi70/rigi-ios-sdk-Specs.git'
 
-platform :ios, '10.0'
+platform :ios, '12.0'
 use_frameworks!
 
 def install_pods
