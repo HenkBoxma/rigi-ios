@@ -30,7 +30,7 @@ Create Rigi previews for your iOS project.
 This repository houses the Rigi iOS SDK framework and sample projects.
 
 - **Examples** - The example apps.
-- **Releaes** - The Rigi framework and commandline scripts. 
+- **Releases** - The Rigi framework and commandline scripts. 
 
 Find out more about Rigi for iOS on (https://rigi.io). 
 
