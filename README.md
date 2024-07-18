@@ -112,8 +112,8 @@ This will setup cocoapods in the project. CocoaPods will create a new project_na
 Add the following lines to the top of the `Podfile`:
 
 ```bash
-source 'https://github.com/HenkBoxma/rigi-ios'
 source 'https://cdn.cocoapods.org/'
+source 'https://github.com/HenkBoxma/rigi-ios-pod.git'
 ```
 
 Add the Rigi pod. Optionally specify the version you want to use, like so:
@@ -125,7 +125,7 @@ pod 'Rigi', '~> 1.0'
 Your Podfile will now look something like this:
 
 ```bash
-platform :ios, '11.0'
+platform :ios, '12.0'
 
 use_frameworks!
 
@@ -145,6 +145,8 @@ target 'RigiExample Pseudo' do
   pod 'Rigi'
 end
 ```
+
+Note: the minimum required target is ios version 12.0.
 
 Once you update your Podfile you will need to run either `pod update` or `pod install --repo-update` to update your repos.
 
@@ -509,7 +511,9 @@ Pods/Rigi/bin/strings-extract.sh
 
 ## License
 
-Copyright (c) 2022 Rigi.io
+Copyright (c) 2024 Rigi.io
+Use of the Rigi SDK for iOS is allowed in combination with a paid Rigi Cloud subscription.
+Terms and conditions 2024 apply, see https://rigi.io/terms-and-conditions-2024/.
 
 <br />
 

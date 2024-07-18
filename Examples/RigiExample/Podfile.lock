@@ -1,16 +1,16 @@
 PODS:
-  - Rigi (0.1.4)
+  - Rigi (1.0.2)
 
 DEPENDENCIES:
   - Rigi
 
 SPEC REPOS:
-  https://github.com/HenkBoxma/rigi-ios-pod:
+  https://github.com/HenkBoxma/rigi-ios-pod.git:
     - Rigi
 
 SPEC CHECKSUMS:
-  Rigi: 5505de18ef96cfff0ec633caedc441832cb23540
+  Rigi: afa48e26238f4b945da8d919131e67ec84180c49
 
-PODFILE CHECKSUM: 5f4f1b31d1ffa2592f43fb79925f9f629a4dc073
+PODFILE CHECKSUM: 0f6123cf1f4584c040834a23ab4fd9d0f97f2aa1
 
-COCOAPODS: 1.11.3
+COCOAPODS: 1.14.3
