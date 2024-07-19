@@ -90,19 +90,23 @@ When the locale can not be selected from the dropdown add a new launch argument 
 ![](https://raw.githubusercontent.com/HenkBoxma/rigi-ios/main/Docs/Assets/scheme-edit4.png)
 
 
-### Add the SDK using Swift Package Manager
+### Add the Rigi SDK to your project
+
+The Rigi SDK can be installed using Swift Package Manager or Cocoapods. See instructions for both methods below.
+<br/>
+
+### - Swift Package Manager
 
 The Rigi SDK for iOS can be installed with [`Swift Package Manager`](https://developer.apple.com/documentation/xcode/adding-package-dependencies-to-your-app).
 
-Install the Swift Package from this git repository
+Install the Swift Package from the following git repository:
 
 ```
 https://github.com/HenkBoxma/rigi-ios-pod.git
 ```
 <br/>
-<br/>
 
-### Add the SDK using CocoaPods
+### - CocoaPods
 
 The Rigi SDK for iOS can be installed through [`CocoaPods`](https://cocoapods.org/).
 
