@@ -94,8 +94,9 @@ When the locale can not be selected from the dropdown add a new launch argument 
 
 The Rigi SDK can be installed using Swift Package Manager or Cocoapods. See instructions for both methods below.
 <br/>
+<br/>
 
-#### - Swift Package Manager
+#### - Add using Swift Package Manager
 
 The Rigi SDK for iOS can be installed with [`Swift Package Manager`](https://developer.apple.com/documentation/xcode/adding-package-dependencies-to-your-app).
 
@@ -105,7 +106,24 @@ Install the Swift Package from the following git repository:
 https://github.com/HenkBoxma/rigi-ios-pod.git
 ```
 
-#### - CocoaPods
+After the installation you need to manually copy the Rigi scripts from the Rigi Package to your project. First make the destination folder.
+
+```
+cd [PROJECT_FOLDER]
+mkdir -p Pods/Rigi/
+```
+
+Then select the Rigi/Package/bin folder from the Package Dependencies in your Xcode project, open the folder in Finder and copy the bin folder with all the scripts into 
+
+```
+[PROJECT_FOLDER]/Pods/Rigi/
+```
+
+In a future update we will automate this process.
+
+<br/>
+
+#### - Add using CocoaPods
 
 The Rigi SDK for iOS can be installed through [`CocoaPods`](https://cocoapods.org/).
 
