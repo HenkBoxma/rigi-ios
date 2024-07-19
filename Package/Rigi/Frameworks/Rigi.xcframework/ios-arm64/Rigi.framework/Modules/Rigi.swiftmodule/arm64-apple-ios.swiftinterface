@@ -1,0 +1,100 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.10 (swiftlang-5.10.0.13 clang-1500.3.9.4)
+// swift-module-flags: -target arm64-apple-ios12.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name Rigi
+import DeveloperToolsSupport
+import Foundation
+@_exported import Rigi
+import Swift
+import SwiftUI
+import UIKit
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+@_hasMissingDesignatedInitializers public class RigiSdk {
+  public static let shared: Rigi.RigiSdk
+  public var settings: Rigi.RigiSettings
+  public func start()
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class RigiFileSystem {
+  @objc deinit
+}
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) public class RigiButton : UIKit.UIViewController {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func loadView()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidLayoutSubviews()
+  @_Concurrency.MainActor(unsafe) public func animateClick()
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class RigiDebug {
+  public static var data: Swift.String
+  public static func clear()
+  public static func add(_ message: Swift.String)
+  @objc deinit
+}
+extension Swift.String {
+  public mutating func replaceGroups(matching regex: Foundation.NSRegularExpression, with template: Swift.String, options: Foundation.NSRegularExpression.MatchingOptions = [])
+  public func replacingGroups(matching regex: Foundation.NSRegularExpression, with transformationString: Swift.String) -> Swift.String
+}
+public var debugLoggingEnabled: Swift.Bool
+public enum RigiLogLevel : Swift.String {
+  case debug, verbose, warning, error
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+@_hasMissingDesignatedInitializers public class RigiLogger {
+  public static func log(_ level: Rigi.RigiLogLevel = .verbose, _ message: Swift.String, _ error: (any Swift.Error)? = nil)
+  @objc deinit
+}
+public struct RigiSettings {
+  public enum ClipBounds {
+    case screen
+    case upperViewController
+    public static func == (a: Rigi.RigiSettings.ClipBounds, b: Rigi.RigiSettings.ClipBounds) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  public enum DivPosition {
+    case topleft
+    case center
+    public static func == (a: Rigi.RigiSettings.DivPosition, b: Rigi.RigiSettings.DivPosition) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  public var loggingEnabled: Swift.Bool
+  public var isButtonVisible: Swift.Bool
+  public var addFileTimestamps: Swift.Bool
+  public var enableAutoScanning: Swift.Bool
+  public var autoScanInterval: Swift.Double
+  public var autoScanCaptureDelay: Swift.Double
+  public var onlyScanUpperViewController: Swift.Bool
+  public var autoClearTextFields: Swift.Bool
+  public var additionalUpperViewControllers: [Swift.String]
+  public var minimumOnscreenHorz: Swift.Double
+  public var minimumOnscreenVert: Swift.Double
+  public var clipOffscreen: Swift.Bool
+  public var clipStyle: Rigi.RigiSettings.ClipBounds
+  public var expandToButton: Swift.Bool
+  public var addDeviceBezels: Swift.Bool
+  public var previewPosition: Rigi.RigiSettings.DivPosition
+  public var addLabelBorders: Swift.Bool
+  public var labelBorderColor: Swift.String
+  public var includeAppleWebFonts: Swift.Bool
+  public var includedAppleWebFonts: Swift.String
+  public var includedFontStyles: Swift.String
+  public var includedBodyStyles: Swift.String
+  public var fontStyleClasses: [Swift.String : Swift.String]
+}
+extension Rigi.RigiLogLevel : Swift.Equatable {}
+extension Rigi.RigiLogLevel : Swift.Hashable {}
+extension Rigi.RigiLogLevel : Swift.RawRepresentable {}
+extension Rigi.RigiSettings.ClipBounds : Swift.Equatable {}
+extension Rigi.RigiSettings.ClipBounds : Swift.Hashable {}
+extension Rigi.RigiSettings.DivPosition : Swift.Equatable {}
+extension Rigi.RigiSettings.DivPosition : Swift.Hashable {}
