@@ -119,7 +119,7 @@ Then select the Rigi/Package/bin folder from the Package Dependencies in your Xc
 [PROJECT_FOLDER]/Pods/Rigi/
 ```
 
-In a future update we will automate this process.
+In a future update we will automate this step.
 
 <br/>
 
